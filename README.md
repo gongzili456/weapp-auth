@@ -36,6 +36,30 @@ this middleware assembly `weapp_auth` to `ctx`
     console.log(ctx.weapp_auth)
   })
 ```
+example:
+
+```
+{  
+   code,
+   encrypt_data,
+   iv,
+   session_key,
+   user_info:{  
+      openId,
+      nickName,
+      gender:1,
+      language:'zh_CN',
+      city:'Chaoyang',
+      province:'Beijing',
+      country:'China',
+      avatarUrl,
+      watermark:{  
+         timestamp:1503576077,
+         appid
+      }
+   }
+}
+```
 
 # Timing diagram
 ![](https://github.com/gongzili456/weapp-auth/blob/master/weapp-auth-flow.png)
