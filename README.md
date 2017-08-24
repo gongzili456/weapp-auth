@@ -38,4 +38,4 @@ this middleware assembly `weapp_auth` to `ctx`
 ```
 
 # Timing diagram
-![](https://github.com/gongzili456/weapp-auth/weapp-auth-flow.png)
+![](https://github.com/gongzili456/weapp-auth/blob/master/weapp-auth-flow.png)
