@@ -1,3 +1,8 @@
+# Install
+```
+npm install weapp-auth
+```
+
 # Usage
 
 ```
