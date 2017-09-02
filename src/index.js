@@ -62,7 +62,7 @@ export default class WeappAuth {
       user_info: decoded
     }
 
-    next()
+    await next()
   }
 }
 
