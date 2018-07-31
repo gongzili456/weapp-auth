@@ -1,4 +1,5 @@
 # Install
+
 ```
 npm install weapp-auth
 ```
@@ -14,7 +15,6 @@ app.use(new WeappAuth({
   appid: 'your appid',
   secret: 'your secret'
 }))
-
 ```
 
 Or
@@ -29,11 +29,29 @@ const weappAuth = new WeappAuth({
   secret: 'your secret'
 })
 
-app.use(weappAuth.middleware)
+app.use(weappAuth)
+```
 
+Or pass middleware set config used key `ctx.weapp_config`
+
+```
+const Koa = require('koa')
+
+const app = new Koa()
+
+app.use(async (ctx, next) => {
+  ctx.weapp_config = {
+    appid: 'acb',
+    secret: 'ddd',
+  }
+  await next()
+})
+
+app.use(new WeappAuth())
 ```
 
 # Response
+
 this middleware assembly `weapp_auth` to `ctx`
 
 ```
@@ -41,6 +59,7 @@ this middleware assembly `weapp_auth` to `ctx`
     console.log(ctx.weapp_auth)
   })
 ```
+
 example:
 
 ```
@@ -67,4 +86,5 @@ example:
 ```
 
 # Timing diagram
+
 ![](https://github.com/gongzili456/weapp-auth/blob/master/weapp-auth-flow.png)
