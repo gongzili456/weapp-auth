@@ -7,7 +7,7 @@ const debug = new Debug('weapp-auth:index:');
 const WX_HEADER_CODE = 'x-wx-code';
 const WX_HEADER_ENCRYPTED_DATA = 'x-wx-encrypted-data';
 const WX_HEADER_IV = 'x-wx-iv';
-
+const WX_HEADER_SK = 'x-wx-sk';
 export default class WeappAuth {
   constructor(ops) {
     if (ops) {
@@ -51,12 +51,14 @@ export default class WeappAuth {
     const code = ctx.headers[WX_HEADER_CODE];
     const encrypt_data = ctx.headers[WX_HEADER_ENCRYPTED_DATA];
     const iv = ctx.headers[WX_HEADER_IV];
+    const sk = ctx.headers[WX_HEADER_SK];
 
     debug('code: ', code);
     debug('encrypt_data: ', encrypt_data);
     debug('iv: ', iv);
 
-    const session_key = await jscode2session(code, this.appid, this.secret);
+    const session_key =
+      sk || (await jscode2session(code, this.appid, this.secret));
 
     const wxdc = new WXBizDataCrypt(this.appid, session_key);
     const decoded = wxdc.decryptData(encrypt_data, iv);
