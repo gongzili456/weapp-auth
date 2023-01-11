@@ -34,7 +34,7 @@
     "babel-plugin-transform-runtime": "^6.9.0",
     "babel-preset-eslatest-node6": "^1.0.1",
     "babel-register": "^6.9.0",
-    "debug": "^3.0.0",
+    "debug": "^3.1.0",
     "eslint": "^3.0.0",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-config-standard": "^5.3.1",
